@@ -1,6 +1,6 @@
 from datetime import timedelta
 from airflow import DAG
-from airflow.operators.dummy_operators import DummyOperator
+from airflow.operators.python_operators import PythonOperator
 from datetime import datetime
 
 default_args = {
