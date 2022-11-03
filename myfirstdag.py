@@ -15,7 +15,7 @@ default_args = {
 }
 
 # dag = DAG('kubernetes_hello_world1', default_args=default_args, schedule_interval=timedelta(minutes=10))
-dag = DAG('DAG_1', default_args=default_args, catchup=False, scheule_interval=timedelta(minutes=10))
+dag = DAG(dag_id='DAG_1', default_args=default_args, scheule_interval=timedelta(minutes=10))
 
 
 start = DummyOperator(task_id='start', dag=dag)
