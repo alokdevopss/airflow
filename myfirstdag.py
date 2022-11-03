@@ -14,7 +14,8 @@ default_args = {
     'retry_delay': timedelta(minutes=5)
 }
 
-dag = DAG('kubernetes_hello_world1', default_args=default_args, schedule_interval=timedelta(minutes=10))
+# dag = DAG('kubernetes_hello_world1', default_args=default_args, schedule_interval=timedelta(minutes=10))
+dag = DAG(dag_id='DAG_1', default_args=default_args, catchup=False, scheule_interval='@once')
 
 
 start = DummyOperator(task_id='start', dag=dag)
