@@ -22,16 +22,16 @@ start = DummyOperator(task_id='start', dag=dag)
 
 
 
-# failing = KubernetesPodOperator(namespace='gessa-dataprocessing-dev',
-#                           image="ubuntu:16.04",
-#                           cmds=["python","-c"],
-#                           arguments=["print('hello world')"],
-#                           labels={"foo": "bar"},
-#                           name="fail",
-#                           task_id="failing-task",
-#                           get_logs=True,
-#                           dag=dag
-#                           )
+failing = KubernetesPodOperator(namespace='default',
+                          image="ubuntu:16.04",
+                          cmds=["python","-c"],
+                          arguments=["print('hello world')"],
+                          labels={"foo": "bar"},
+                          name="fail",
+                          task_id="failing-task",
+                          get_logs=True,
+                          dag=dag
+                          )
 
 end = DummyOperator(task_id='end', dag=dag)
 
